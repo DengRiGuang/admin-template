@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-02-25 17:52:39
+ * @lastTime: 2021-02-26 15:53:03
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -48,13 +48,17 @@
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <a-layout-header style="background: #fff; padding: 0">
+        <header class="ant-layout-header" style="height: 64px; line-height: 64px; background: transparent;"></header>
+        <a-layout-header class="global-header fixed-header" :style="collapsed ? 'width: calc(100% - 80px);': 'width: calc(100% - 200px);'">
+          <div style="flex: 1 1 0%;">
           <menu-unfold-outlined
             v-if="collapsed"
             class="trigger"
             @click="() => (collapsed = !collapsed)"
           />
           <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+            </div>
+          <header-container />
         </a-layout-header>
         <a-layout-content style="margin: 0 16px">
           <a-breadcrumb style="margin: 16px 0">
@@ -65,8 +69,8 @@
             Bill is a cat.
           </div>
         </a-layout-content>
-        <a-layout-footer style="text-align: center">
-          Ant Design ©2018 Created by Ant UED
+        <a-layout-footer>
+          <footer-containter />
         </a-layout-footer>
       </a-layout>
     </a-layout>
@@ -84,6 +88,8 @@ import {
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
+import HeaderContainer from '../components/GlobalHeader/index.vue';
+import FooterContainter from '../components/GlobalFooter/index.vue';
 export default defineComponent({
   name: 'BasicLayout',
   components: {
@@ -94,6 +100,8 @@ export default defineComponent({
     FileOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    HeaderContainer,
+    FooterContainter
   },
   data() {
     return {
@@ -103,7 +111,7 @@ export default defineComponent({
   },
 });
 </script>
-<style>
+<style lang="less">
 .basic-layout .logo {
   height: 32px;
   margin: 16px;
@@ -125,5 +133,23 @@ export default defineComponent({
 }
 [data-theme='dark'] .site-layout .site-layout-background {
   background: #141414;
+}
+.basic-layout{
+  .global-header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: #fff;
+    box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+    &.fixed-header{
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+  }
+  .global-header-right{
+    margin-right: 16px;
+  }
 }
 </style>

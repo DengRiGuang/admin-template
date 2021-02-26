@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-22 10:55:32
- * @lastTime: 2021-02-26 10:07:15
+ * @lastTime: 2021-02-26 17:35:38
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\views\login\index.vue
  * @Description: 
@@ -14,7 +14,7 @@
           <a-form-item v-bind="validateInfos.username">
             <a-input v-model:value="modelRef.username" size="large" placeholder="账户">
               <template #prefix>
-                <user-outlined type="user" />
+                <UserOutlined />
               </template>
               <template #suffix>
                 <a-tooltip title="Extra information">
@@ -26,7 +26,7 @@
           <a-form-item v-bind="validateInfos.password">
             <a-input-password v-model:value="modelRef.password" size="large" placeholder="密码">
               <template #prefix>
-                <lock-outlined type="lock" />
+                <LockOutlined />
               </template>
             </a-input-password>
           </a-form-item>
