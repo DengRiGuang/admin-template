@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-02-26 15:53:03
+ * @lastTime: 2021-03-01 09:58:26
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -9,43 +9,46 @@
 <template>
   <div class="basic-layout">
     <a-layout style="min-height: 100vh">
-      <a-layout-sider v-model:collapsed="collapsed" collapsible>
+      <div :style="siderFixed"></div>
+      <a-layout-sider v-model:collapsed="collapsed" class="sider-fixed" collapsible>
         <div class="logo" />
-        <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-          <a-menu-item key="1">
-            <pie-chart-outlined />
-            <span>Option 1</span>
-          </a-menu-item>
-          <a-menu-item key="2">
-            <desktop-outlined />
-            <span>Option 2</span>
-          </a-menu-item>
-          <a-sub-menu key="sub1">
-            <template #title>
-              <span>
-                <user-outlined />
-                <span>User</span>
-              </span>
-            </template>
-            <a-menu-item key="3">Tom</a-menu-item>
-            <a-menu-item key="4">Bill</a-menu-item>
-            <a-menu-item key="5">Alex</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="sub2">
-            <template #title>
-              <span>
-                <team-outlined />
-                <span>Team</span>
-              </span>
-            </template>
-            <a-menu-item key="6">Team 1</a-menu-item>
-            <a-menu-item key="8">Team 2</a-menu-item>
-          </a-sub-menu>
-          <a-menu-item key="9">
-            <file-outlined />
-            <span>File</span>
-          </a-menu-item>
-        </a-menu>
+        <div style="flex: 1 1 0%; overflow: hidden auto;">
+          <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+            <a-menu-item key="1">
+              <pie-chart-outlined />
+              <span>Option 1</span>
+            </a-menu-item>
+            <a-menu-item key="2">
+              <desktop-outlined />
+              <span>Option 2</span>
+            </a-menu-item>
+            <a-sub-menu key="sub1">
+              <template #title>
+                <span>
+                  <user-outlined />
+                  <span>User</span>
+                </span>
+              </template>
+              <a-menu-item key="3">Tom</a-menu-item>
+              <a-menu-item key="4">Bill</a-menu-item>
+              <a-menu-item key="5">Alex</a-menu-item>
+            </a-sub-menu>
+            <a-sub-menu key="sub2">
+              <template #title>
+                <span>
+                  <team-outlined />
+                  <span>Team</span>
+                </span>
+              </template>
+              <a-menu-item key="6">Team 1</a-menu-item>
+              <a-menu-item key="8">Team 2</a-menu-item>
+            </a-sub-menu>
+            <a-menu-item key="9">
+              <file-outlined />
+              <span>File</span>
+            </a-menu-item>
+          </a-menu>
+        </div>
       </a-layout-sider>
       <a-layout>
         <header class="ant-layout-header" style="height: 64px; line-height: 64px; background: transparent;"></header>
@@ -109,6 +112,26 @@ export default defineComponent({
       selectedKeys: ref<string[]>(['1']),
     };
   },
+  computed: {
+    siderFixed() {
+      if (this.collapsed) {
+        return {
+          'width': '80px',
+          'overflow': 'hidden',
+          'flex': '0 0 80px',
+          'max-width': '80px',
+          'min-width': '80px',
+        }
+      }
+      return {
+        'width': '208px',
+        'overflow': 'hidden',
+        'flex': '0 0 200px',
+        'max-width': '200px',
+        'min-width': '200px',
+      }
+    }
+  },
 });
 </script>
 <style lang="less">
@@ -116,13 +139,18 @@ export default defineComponent({
   height: 32px;
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: padding .3s cubic-bezier(.645,.045,.355,1);
 }
 .basic-layout .trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: all .3s,padding 0s;
 }
 
 .basic-layout .trigger:hover {
@@ -150,6 +178,16 @@ export default defineComponent({
   }
   .global-header-right{
     margin-right: 16px;
+  }
+  .sider-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    box-shadow: 2px 0 8px 0 rgb(29 35 41 / 5%);
   }
 }
 </style>

@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-19 10:37:35
- * @lastTime: 2021-02-26 18:04:02
+ * @lastTime: 2021-02-26 18:17:53
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\plugins\index.ts
  * @Description: 
@@ -12,7 +12,6 @@ import {
   Input,
   InputNumber,
   Menu,
-  Icon,
   Tooltip,
   Tabs,
   Layout,
@@ -28,7 +27,6 @@ const components = [
   Input,
   InputNumber,
   Menu,
-  Icon,
   Tooltip,
   Tabs,
   Layout,

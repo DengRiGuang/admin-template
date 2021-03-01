@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 09:52:34
- * @lastTime: 2021-02-25 10:25:47
+ * @lastTime: 2021-03-01 09:04:38
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\UserLayout.vue
  * @Description: 
@@ -135,7 +135,7 @@ export default defineComponent({
         position: absolute;
         width: 100%;
         bottom: 0;
-        padding: 0 16px;
+        padding: 16px 0;
         margin: 48px 0 24px;
         text-align: center;
 
