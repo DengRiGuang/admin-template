@@ -54,8 +54,8 @@
 import { UserOutlined, InfoCircleOutlined, LockOutlined } from '@ant-design/icons-vue';
 import { defineComponent, reactive, ref } from 'vue';
 import { useForm } from '@ant-design-vue/use';
-import { setToken } from '../../utils/auth';
-import { ACCESS_TOKEN } from '../../config/mutation-types';
+import { setToken } from '@/utils/auth';
+import { ACCESS_TOKEN } from '@/config/mutation-types';
 import { useRouter } from 'vue-router';
 export default defineComponent ({
   components: {

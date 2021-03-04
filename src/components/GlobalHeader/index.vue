@@ -14,8 +14,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import AvatarDropdown from '../GlobalHeader/AvatarDropdown.vue';
-import SelectLang from '../SelectLang/index.vue';
+import AvatarDropdown from 'comps/GlobalHeader/AvatarDropdown.vue';
+import SelectLang from 'comps/SelectLang/index.vue';
 export default defineComponent ({
   name: 'HeaderContainer',
   components: {

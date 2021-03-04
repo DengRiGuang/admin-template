@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-26 13:29:25
- * @lastTime: 2021-02-26 14:14:28
+ * @lastTime: 2021-03-01 10:21:36
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\components\SelectLang\index.vue
  * @Description: 
@@ -14,7 +14,7 @@
         <a-menu selectable>
           <template v-for="(value, key, index) in languageIcons" :key="index">
             <a-menu-item>
-              <a href="javascript:;">{{ value }}{{ languagelabels[key] }}</a>
+              <span href="javascript:;">{{ value }}{{ languagelabels[key] }}</span>
             </a-menu-item>
           </template>
         </a-menu>

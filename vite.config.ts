@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-19 09:57:14
- * @lastTime: 2021-02-26 17:53:26
+ * @lastTime: 2021-03-04 15:06:36
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\vite.config.ts
  * @Description: 
@@ -28,9 +28,15 @@ export default defineConfig({
   base: './',
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-      'comps': resolve(__dirname, 'src/components'),
+      '@': resolve(__dirname, './src'),
+      'comps': resolve(__dirname, './src/components'),
     },
+  },
+  optimizeDeps: {
+    include: [
+      'moment',
+      '@ant-design/icons-vue'
+    ]
   },
   server: {
     https: false,

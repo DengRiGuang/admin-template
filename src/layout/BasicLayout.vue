@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-03-01 09:58:26
+ * @lastTime: 2021-03-04 15:07:34
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -14,39 +14,34 @@
         <div class="logo" />
         <div style="flex: 1 1 0%; overflow: hidden auto;">
           <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-            <a-menu-item key="1">
-              <pie-chart-outlined />
-              <span>Option 1</span>
-            </a-menu-item>
-            <a-menu-item key="2">
-              <desktop-outlined />
-              <span>Option 2</span>
-            </a-menu-item>
-            <a-sub-menu key="sub1">
-              <template #title>
-                <span>
-                  <user-outlined />
-                  <span>User</span>
-                </span>
+            <template v-for="(item) in currentMenu">
+              <template v-if="item.children">
+                <a-sub-menu :key="item.name">
+                  <template #title>
+                    <span>
+                      <team-outlined />
+                      <span>{{ item.name }}</span>
+                    </span>
+                  </template>
+                  <template v-for="sub in item.children" :key="sub.name">
+                    <a-menu-item>
+                      <router-link :to="item.path">
+                        <TeamOutlined />
+                        <span>{{ sub.name }}</span>
+                      </router-link>
+                    </a-menu-item>
+                  </template>
+                </a-sub-menu>
               </template>
-              <a-menu-item key="3">Tom</a-menu-item>
-              <a-menu-item key="4">Bill</a-menu-item>
-              <a-menu-item key="5">Alex</a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="sub2">
-              <template #title>
-                <span>
-                  <team-outlined />
-                  <span>Team</span>
-                </span>
+              <template v-else>
+                <a-menu-item :key="item.name">
+                    <router-link :to="item.path">
+                      <TeamOutlined />
+                      <span>{{ item.name }}</span>
+                    </router-link>
+                </a-menu-item>
               </template>
-              <a-menu-item key="6">Team 1</a-menu-item>
-              <a-menu-item key="8">Team 2</a-menu-item>
-            </a-sub-menu>
-            <a-menu-item key="9">
-              <file-outlined />
-              <span>File</span>
-            </a-menu-item>
+            </template>
           </a-menu>
         </div>
       </a-layout-sider>
@@ -69,7 +64,7 @@
             <a-breadcrumb-item>Bill</a-breadcrumb-item>
           </a-breadcrumb>
           <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-            Bill is a cat.
+            <router-view />
           </div>
         </a-layout-content>
         <a-layout-footer>
@@ -90,9 +85,10 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
-import { defineComponent, ref } from 'vue';
-import HeaderContainer from '../components/GlobalHeader/index.vue';
-import FooterContainter from '../components/GlobalFooter/index.vue';
+import { defineComponent } from 'vue';
+import HeaderContainer from 'comps/GlobalHeader/index.vue';
+import FooterContainter from 'comps/GlobalFooter/index.vue';
+import { asyncRouter } from '@/router/index';
 export default defineComponent({
   name: 'BasicLayout',
   components: {
@@ -108,8 +104,8 @@ export default defineComponent({
   },
   data() {
     return {
-      collapsed: ref<boolean>(false),
-      selectedKeys: ref<string[]>(['1']),
+      collapsed: false,
+      currentMenu: {},
     };
   },
   computed: {
@@ -130,8 +126,17 @@ export default defineComponent({
         'max-width': '200px',
         'min-width': '200px',
       }
+    },
+    selectedKeys() {
+      const route = this.$route
+      const { name } = route
+      console.log(route)
+      return [name]
     }
   },
+  created() {
+    this.currentMenu = asyncRouter
+  }
 });
 </script>
 <style lang="less">
