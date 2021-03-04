@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-03-04 15:07:34
+ * @lastTime: 2021-03-04 16:14:41
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -9,7 +9,7 @@
 <template>
   <div class="basic-layout">
     <a-layout style="min-height: 100vh">
-      <div :style="siderFixed"></div>
+      <div :class="siderFixed"></div>
       <a-layout-sider v-model:collapsed="collapsed" class="sider-fixed" collapsible>
         <div class="logo" />
         <div style="flex: 1 1 0%; overflow: hidden auto;">
@@ -85,10 +85,11 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
-import { defineComponent } from 'vue';
+import { computed, defineComponent, reactive, ref } from 'vue';
 import HeaderContainer from 'comps/GlobalHeader/index.vue';
 import FooterContainter from 'comps/GlobalFooter/index.vue';
 import { asyncRouter } from '@/router/index';
+import { useRoute } from 'vue-router';
 export default defineComponent({
   name: 'BasicLayout',
   components: {
@@ -102,41 +103,24 @@ export default defineComponent({
     HeaderContainer,
     FooterContainter
   },
-  data() {
-    return {
-      collapsed: false,
-      currentMenu: {},
-    };
-  },
-  computed: {
-    siderFixed() {
-      if (this.collapsed) {
-        return {
-          'width': '80px',
-          'overflow': 'hidden',
-          'flex': '0 0 80px',
-          'max-width': '80px',
-          'min-width': '80px',
-        }
-      }
-      return {
-        'width': '208px',
-        'overflow': 'hidden',
-        'flex': '0 0 200px',
-        'max-width': '200px',
-        'min-width': '200px',
-      }
-    },
-    selectedKeys() {
-      const route = this.$route
-      const { name } = route
-      console.log(route)
+  setup() {
+    const $route = useRoute()
+    const collapsed = ref(false)
+    let currentMenu = reactive(asyncRouter)
+    const siderFixed = computed(() => {
+      return collapsed.value ? 'fold' : 'open'
+    })
+    const selectedKeys = computed(() => {
+      const { name } = $route
       return [name]
+    })
+    return {
+      collapsed,
+      currentMenu,
+      siderFixed,
+      selectedKeys
     }
   },
-  created() {
-    this.currentMenu = asyncRouter
-  }
 });
 </script>
 <style lang="less">
@@ -180,6 +164,20 @@ export default defineComponent({
       top: 0;
       right: 0;
     }
+  }
+  .open{
+    width: 208px;
+    overflow: hidden;
+    flex: 0 0 208px;
+    max-width: 208px;
+    min-width: 208px;
+  }
+  .fold{
+    width: 80px;
+    overflow: hidden;
+    flex: 0 0 80px;
+    max-width: 80px;
+    min-width: 80px;
   }
   .global-header-right{
     margin-right: 16px;
