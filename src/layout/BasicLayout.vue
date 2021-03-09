@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-03-09 14:30:38
+ * @lastTime: 2021-03-09 17:31:37
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -15,12 +15,15 @@
         <div style="flex: 1 1 0%; overflow: hidden auto;">
           <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
             <template v-for="item in currentMenu">
-              <a-menu-item v-if="!item.children || item.children.length ===0" :key="item.path">
-                <router-link :to="item.path">
-                  <span>{{ item.name }}</span>
-                </router-link>
-              </a-menu-item>
-              <custom-menu-item v-else :key="item.path" :menu="item"></custom-menu-item>
+              <template v-if="!item.hidden">
+                <a-menu-item v-if="!item.children || item.children.length ===0" :key="item.path">
+                  <router-link :to="item.path" class="router-link-exact-active">
+                    <icon :name="item.meta.icon" />
+                    <span>{{ item.name }}</span>
+                  </router-link>
+                </a-menu-item>
+                <custom-menu-item v-else :key="item.path" :menu="item"></custom-menu-item>
+              </template>
             </template>
           </a-menu>
         </div>
@@ -65,12 +68,13 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
-import { computed, defineComponent, reactive, ref } from 'vue';
+import { computed, defineComponent, reactive, ref, toRefs } from 'vue';
 import HeaderContainer from 'comps/GlobalHeader/index.vue';
 import FooterContainter from 'comps/GlobalFooter/index.vue';
 import SubMenu from './components/SubMenu.vue';
 import { asyncRouter } from '@/router/index';
 import { useRoute } from 'vue-router';
+import Icon from './components/Icon.vue';
 export default defineComponent({
   name: 'BasicLayout',
   components: {
@@ -83,25 +87,24 @@ export default defineComponent({
     MenuFoldOutlined,
     HeaderContainer,
     FooterContainter,
-    'custom-menu-item': SubMenu
+    'custom-menu-item': SubMenu,
+    Icon
   },
   setup() {
     const $route = useRoute()
     const collapsed = ref(false)
-    let currentMenu = reactive(asyncRouter)
     const siderFixed = computed(() => {
       return collapsed.value ? 'fold' : 'open'
     })
-    // 菜单选中状态，需要跟menu菜单key，绑定同一字段
-    const selectedKeys = computed(() => {
-      const { path } = $route
-      return [path]
+    const state = reactive({
+      currentMenu: asyncRouter,
+      collapsed: false,
+      selectedKeys: [$route.path],
     })
     return {
+      ...toRefs(state),
       collapsed,
-      currentMenu,
       siderFixed,
-      selectedKeys
     }
   },
 });
