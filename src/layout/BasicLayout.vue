@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-03-04 16:14:41
+ * @lastTime: 2021-03-09 14:30:38
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -14,33 +14,13 @@
         <div class="logo" />
         <div style="flex: 1 1 0%; overflow: hidden auto;">
           <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-            <template v-for="(item) in currentMenu">
-              <template v-if="item.children">
-                <a-sub-menu :key="item.name">
-                  <template #title>
-                    <span>
-                      <team-outlined />
-                      <span>{{ item.name }}</span>
-                    </span>
-                  </template>
-                  <template v-for="sub in item.children" :key="sub.name">
-                    <a-menu-item>
-                      <router-link :to="item.path">
-                        <TeamOutlined />
-                        <span>{{ sub.name }}</span>
-                      </router-link>
-                    </a-menu-item>
-                  </template>
-                </a-sub-menu>
-              </template>
-              <template v-else>
-                <a-menu-item :key="item.name">
-                    <router-link :to="item.path">
-                      <TeamOutlined />
-                      <span>{{ item.name }}</span>
-                    </router-link>
-                </a-menu-item>
-              </template>
+            <template v-for="item in currentMenu">
+              <a-menu-item v-if="!item.children || item.children.length ===0" :key="item.path">
+                <router-link :to="item.path">
+                  <span>{{ item.name }}</span>
+                </router-link>
+              </a-menu-item>
+              <custom-menu-item v-else :key="item.path" :menu="item"></custom-menu-item>
             </template>
           </a-menu>
         </div>
@@ -88,6 +68,7 @@ import {
 import { computed, defineComponent, reactive, ref } from 'vue';
 import HeaderContainer from 'comps/GlobalHeader/index.vue';
 import FooterContainter from 'comps/GlobalFooter/index.vue';
+import SubMenu from './components/SubMenu.vue';
 import { asyncRouter } from '@/router/index';
 import { useRoute } from 'vue-router';
 export default defineComponent({
@@ -101,7 +82,8 @@ export default defineComponent({
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     HeaderContainer,
-    FooterContainter
+    FooterContainter,
+    'custom-menu-item': SubMenu
   },
   setup() {
     const $route = useRoute()
@@ -110,9 +92,10 @@ export default defineComponent({
     const siderFixed = computed(() => {
       return collapsed.value ? 'fold' : 'open'
     })
+    // 菜单选中状态，需要跟menu菜单key，绑定同一字段
     const selectedKeys = computed(() => {
-      const { name } = $route
-      return [name]
+      const { path } = $route
+      return [path]
     })
     return {
       collapsed,
