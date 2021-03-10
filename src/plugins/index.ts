@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-19 10:37:35
- * @lastTime: 2021-03-09 17:35:08
+ * @lastTime: 2021-03-10 09:59:48
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\plugins\index.ts
  * @Description: 
@@ -19,6 +19,7 @@ import {
   Breadcrumb,
   Avatar,
   Result,
+  message,
 } from 'ant-design-vue';
 import { App } from 'vue';
 
@@ -39,8 +40,9 @@ const components = [
 
 
 
-// const plugins = [
-// ]
+const plugins = [
+  message,
+];
 
 
 
@@ -74,7 +76,7 @@ export function registerComp(app: App): void {
     }
   });
   
-  // plugins.forEach(plugin => {
-  //   app.use(plugin)
-  // })
+  plugins.forEach(() => {
+    app.config.globalProperties.$message = message
+  });
 }

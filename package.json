@@ -2,9 +2,9 @@
   "name": "admin-template",
   "version": "0.0.0",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite",
-    "test": "cross-env NODE_ENV=test vite",
-    "prod": "cross-env NODE_ENV=production vite",
+    "dev": "vite --mode development",
+    "test": "vite --mode test",
+    "prod": "vite -- mode production",
     "build": "vite build"
   },
   "dependencies": {
