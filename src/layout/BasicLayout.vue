@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 17:17:02
- * @lastTime: 2021-03-09 17:31:37
+ * @lastTime: 2021-03-10 17:12:51
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\layout\BasicLayout.vue
  * @Description: 
@@ -32,13 +32,13 @@
         <header class="ant-layout-header" style="height: 64px; line-height: 64px; background: transparent;"></header>
         <a-layout-header class="global-header fixed-header" :style="collapsed ? 'width: calc(100% - 80px);': 'width: calc(100% - 200px);'">
           <div style="flex: 1 1 0%;">
-          <menu-unfold-outlined
-            v-if="collapsed"
-            class="trigger"
-            @click="() => (collapsed = !collapsed)"
-          />
-          <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
-            </div>
+            <menu-unfold-outlined
+              v-if="collapsed"
+              class="trigger"
+              @click="() => (collapsed = !collapsed)"
+            />
+            <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+          </div>
           <header-container />
         </a-layout-header>
         <a-layout-content style="margin: 0 16px">
@@ -60,11 +60,6 @@
 
 <script lang="ts">
 import {
-  PieChartOutlined,
-  DesktopOutlined,
-  UserOutlined,
-  TeamOutlined,
-  FileOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
@@ -78,34 +73,29 @@ import Icon from './components/Icon.vue';
 export default defineComponent({
   name: 'BasicLayout',
   components: {
-    PieChartOutlined,
-    DesktopOutlined,
-    UserOutlined,
-    TeamOutlined,
-    FileOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     HeaderContainer,
     FooterContainter,
     'custom-menu-item': SubMenu,
-    Icon
+    Icon,
   },
   setup() {
-    const $route = useRoute()
-    const collapsed = ref(false)
+    const $route = useRoute();
+    const collapsed = ref(false);
     const siderFixed = computed(() => {
-      return collapsed.value ? 'fold' : 'open'
-    })
+      return collapsed.value ? 'fold' : 'open';
+    });
     const state = reactive({
       currentMenu: asyncRouter,
       collapsed: false,
       selectedKeys: [$route.path],
-    })
+    });
     return {
       ...toRefs(state),
       collapsed,
       siderFixed,
-    }
+    };
   },
 });
 </script>

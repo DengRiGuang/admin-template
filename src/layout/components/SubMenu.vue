@@ -27,20 +27,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Icon from './Icon.vue'
+import { defineComponent } from 'vue';
+import Icon from './Icon.vue';
 export default defineComponent ({
   name: 'CustomMenuItem',
   components: {
-    Icon
+    Icon,
   },
   props: {
     menu: {
       type: Object,
       default: () => ({}),
-    }
-  }
-})
+    },
+  },
+});
 </script>
 
 <style>

@@ -284,11 +284,6 @@
     "@nodelib/fs.scandir" "2.1.4"
     "fastq" "^1.6.0"
 
-"@popperjs/core@^2.4.4":
-  "integrity" "sha512-1oXH2bAFXz9SttE1v/0Jp+2ZVePsPEAPGIuPKrmljWZcS3FPBEn2Q4WcANozZC0YiCjTWOF55k0g6rbSZS39ew=="
-  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.8.6.tgz"
-  "version" "2.8.6"
-
 "@rollup/plugin-node-resolve@^11.2.0":
   "integrity" "sha512-qHjNIKYt5pCcn+5RUBQxK8krhRvf1HnyVgUCcFFcweDS7fhkOLZeYh0mhHK6Ery8/bb9tvN/ubPzmfF0qjDCTA=="
   "resolved" "https://registry.npmjs.org/@rollup/plugin-node-resolve/-/plugin-node-resolve-11.2.0.tgz"
@@ -900,14 +895,7 @@
     "path-type" "^4.0.0"
     "yaml" "^1.10.0"
 
-"cross-env@^7.0.3":
-  "integrity" "sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw=="
-  "resolved" "https://registry.npmjs.org/cross-env/-/cross-env-7.0.3.tgz"
-  "version" "7.0.3"
-  dependencies:
-    "cross-spawn" "^7.0.1"
-
-"cross-spawn@^7.0.0", "cross-spawn@^7.0.1", "cross-spawn@^7.0.2":
+"cross-spawn@^7.0.0", "cross-spawn@^7.0.2":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz"
   "version" "7.0.3"
@@ -925,11 +913,6 @@
   "integrity" "sha512-61FBWoDHp/gRtsoDkq/B1nWrCUG/ok1E3tUrcNbZjsE9Cxd9yzUirjS3+nAATB8U4cTtaQmAHbNndoFz5L6C9Q=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-2.6.16.tgz"
   "version" "2.6.16"
-
-"dayjs@1.x":
-  "integrity" "sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw=="
-  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.10.4.tgz"
-  "version" "1.10.4"
 
 "debug@^3.2.6":
   "integrity" "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="
@@ -1015,19 +998,6 @@
   "integrity" "sha512-t0eEgYCP+XEbH/KwxWYZDY0XKwzmokDAsjFJ2rBstp2XuwuBCUZ+ni5qXI6XDRNkvDpVJcAOp2aJxkSkshKkmw=="
   "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.676.tgz"
   "version" "1.3.676"
-
-"element-plus@^1.0.2-beta.33":
-  "integrity" "sha512-CHm+KO/d1rJ8R+0S3Hi0xwHhia5KSGChp/w1M8rWZNDQsjHJv/8CEpGSet8htXzgpl4amIFEOb7+uKP38Hu2Xw=="
-  "resolved" "https://registry.npmjs.org/element-plus/-/element-plus-1.0.2-beta.33.tgz"
-  "version" "1.0.2-beta.33"
-  dependencies:
-    "@popperjs/core" "^2.4.4"
-    "async-validator" "^3.4.0"
-    "dayjs" "1.x"
-    "lodash" "^4.17.20"
-    "mitt" "^2.1.0"
-    "normalize-wheel" "^1.0.1"
-    "resize-observer-polyfill" "^1.5.1"
 
 "emoji-regex@^8.0.0":
   "integrity" "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="
@@ -1875,11 +1845,6 @@
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
   "version" "1.2.5"
 
-"mitt@^2.1.0":
-  "integrity" "sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg=="
-  "resolved" "https://registry.npmjs.org/mitt/-/mitt-2.1.0.tgz"
-  "version" "2.1.0"
-
 "mockjs@>=1.1.0":
   "integrity" "sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ=="
   "resolved" "https://registry.npmjs.org/mockjs/-/mockjs-1.1.0.tgz"
@@ -1948,11 +1913,6 @@
   "integrity" "sha1-LRDAa9/TEuqXd2laTShDlFa3WUI="
   "resolved" "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz"
   "version" "0.1.2"
-
-"normalize-wheel@^1.0.1":
-  "integrity" "sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU="
-  "resolved" "https://registry.npmjs.org/normalize-wheel/-/normalize-wheel-1.0.1.tgz"
-  "version" "1.0.1"
 
 "npm-run-path@^4.0.0":
   "integrity" "sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw=="

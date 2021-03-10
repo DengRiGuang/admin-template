@@ -8,46 +8,46 @@
 -->
 <template>
   <div class="avatar-dropdown">
-    <a-dropdown overlayClassName="avatar-dropdown" placement="bottomCenter">
+    <a-dropdown overlay-class-name="avatar-dropdown" placement="bottomCenter">
       <span class="account-avatar">
-      <a-avatar size="small" src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" class="antd-pro-global-header-index-avatar" />
-      <span class="avatar-name">{{ currentUser.name }}</span>
-    </span>
-    <template #overlay>
-      <a-menu>
-        <a-menu-item><UserOutlined />个人中心</a-menu-item>
-        <a-menu-item><SettingOutlined />个人设置</a-menu-item>
-        <a-menu-divider />
-        <a-menu-item><LogoutOutlined />退出登录</a-menu-item>
-      </a-menu>
-    </template>
+        <a-avatar size="small" src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" class="antd-pro-global-header-index-avatar" />
+        <span class="avatar-name">{{ currentUser.name }}</span>
+      </span>
+      <template #overlay>
+        <a-menu>
+          <a-menu-item><UserOutlined />个人中心</a-menu-item>
+          <a-menu-item><SettingOutlined />个人设置</a-menu-item>
+          <a-menu-divider />
+          <a-menu-item><LogoutOutlined />退出登录</a-menu-item>
+        </a-menu>
+      </template>
     </a-dropdown>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive } from 'vue';
 import { 
   UserOutlined,
   LogoutOutlined,
-  SettingOutlined
-} from '@ant-design/icons-vue'
+  SettingOutlined,
+} from '@ant-design/icons-vue';
 export default defineComponent({
   name: 'AvatarDropdown',
   components: {
     UserOutlined,
     LogoutOutlined,
-    SettingOutlined
+    SettingOutlined,
   },
   setup() {
     const currentUser = reactive({
-      name: 'Serati Ma'
+      name: 'Serati Ma',
     });
     return {
-      currentUser
-    }
+      currentUser,
+    };
   },
-})
+});
 </script>
 
 <style lang="less">

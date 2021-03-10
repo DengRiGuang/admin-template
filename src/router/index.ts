@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-22 10:44:27
- * @lastTime: 2021-03-09 16:02:31
+ * @lastTime: 2021-03-10 17:11:56
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\router\index.ts
  * @Description: 
@@ -26,23 +26,23 @@ export const asyncRouter = [
         path: '/settings/index',
         name: 'setting',
         component: () => import('@/views/settings/index.vue'),
-        meta: { icon: 'AntDesignOutlined' }
-      }
-    ]
+        meta: { icon: 'AntDesignOutlined' },
+      },
+    ],
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     hidden: true,
-    component: NotFound
-  }
-]
+    component: NotFound,
+  },
+];
 const constantRouter = [
   {
     path: '/',
     name: 'index',
     component: BasicLayout,
-    children: asyncRouter
+    children: asyncRouter,
   },
   { 
     path: '/user', 

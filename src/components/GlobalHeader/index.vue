@@ -13,16 +13,16 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 import AvatarDropdown from 'comps/GlobalHeader/AvatarDropdown.vue';
 import SelectLang from 'comps/SelectLang/index.vue';
 export default defineComponent ({
   name: 'HeaderContainer',
   components: {
     AvatarDropdown,
-    SelectLang
-  }
-})
+    SelectLang,
+  },
+});
 </script>
 <style lang="less">
 .global-header-right {

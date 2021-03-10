@@ -24,16 +24,16 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
-import { GlobalOutlined } from '@ant-design/icons-vue'
+import { GlobalOutlined } from '@ant-design/icons-vue';
 export default defineComponent({
   name: 'SelectLang',
   components: {
-    GlobalOutlined
+    GlobalOutlined,
   },
   setup() {
     const languageIcons = reactive({
       'zh-CN': 'cn',
-      'en-US': 'us'
+      'en-US': 'us',
     });
     const languagelabels = reactive({
       'zh-CN': '简体中文',
@@ -42,7 +42,7 @@ export default defineComponent({
     return {
       languageIcons,
       languagelabels,
-    }
+    };
   },
 });
 </script>

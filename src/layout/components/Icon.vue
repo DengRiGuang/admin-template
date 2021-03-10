@@ -11,28 +11,28 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 import {
-  AntDesignOutlined
-} from '@ant-design/icons-vue'
+  AntDesignOutlined,
+} from '@ant-design/icons-vue';
 export default defineComponent ({
   name: 'DynamicIcon',
   components: {
-    AntDesignOutlined
+    AntDesignOutlined,
   },
   props: {
     name: {
       type: String,
-      default: 'AntDesignOutlined'
+      default: 'AntDesignOutlined',
     },
     className: {
       type: String,
-      default: ''
+      default: '',
     },
     style: {
       type: Object,
-      default: () => {}
-    }
-  }
-})
+      default: () => {},
+    },
+  },
+});
 </script>

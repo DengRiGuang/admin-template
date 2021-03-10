@@ -56,27 +56,27 @@ export function registerComp(app: App): void {
       app.component(component.Divider.name, component.Divider);
     }
     if (component === Input) {
-      app.component(component.Password.name, component.Password)
+      app.component(component.Password.name, component.Password);
     }
     if (component === Form) {
-      app.component(component.Item.name, component.Item)
+      app.component(component.Item.name, component.Item);
     }
     if (component === Tabs) {
-      app.component(component.TabPane.name, component.TabPane)
+      app.component(component.TabPane.name, component.TabPane);
     }
     if (component === Layout) {
-      app.component(component.Content.name, component.Content)
-      app.component(component.Sider.name, component.Sider)
-      app.component(component.Header.name, component.Header)
-      app.component(component.Footer.name, component.Footer)
+      app.component(component.Content.name, component.Content);
+      app.component(component.Sider.name, component.Sider);
+      app.component(component.Header.name, component.Header);
+      app.component(component.Footer.name, component.Footer);
     }
     if (component === Breadcrumb) {
-      app.component(component.Item.name, component.Item)
-      app.component(component.Separator.name, component.Separator)
+      app.component(component.Item.name, component.Item);
+      app.component(component.Separator.name, component.Separator);
     }
   });
   
   plugins.forEach(() => {
-    app.config.globalProperties.$message = message
+    app.config.globalProperties.$message = message;
   });
 }
