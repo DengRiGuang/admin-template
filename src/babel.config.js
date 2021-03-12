@@ -9,7 +9,7 @@
 module.exports = {
   plugins: [
     [
-      "import",
+      'import',
       {
         libraryName: 'element-plus',
         customStyleName: (name) => {

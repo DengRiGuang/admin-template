@@ -1,12 +1,12 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-19 09:57:14
- * @lastTime: 2021-03-10 17:11:18
+ * @lastTime: 2021-03-10 18:15:14
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\main.ts
  * @Description:
  */
-import { createApp } from 'vue';
+import { createApp } from 'vue'
 import App from './App.vue';
 import './styles/index.less';
 // import Antd from 'ant-design-vue';
