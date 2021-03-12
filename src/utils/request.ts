@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 11:06:43
- * @lastTime: 2021-03-10 17:11:35
+ * @lastTime: 2021-03-12 16:54:31
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\utils\request.ts
  * @Description: 
@@ -10,6 +10,7 @@ import axios, { AxiosError } from 'axios';
 // import { getToken } from './auth';
 // import { ACCESS_TOKEN } from '@/config/mutation-types';
 import { message as Message } from 'ant-design-vue';
+
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API as string,
   timeout: 6000, // 超时时间
@@ -43,4 +44,4 @@ request.interceptors.response.use((resp) => {
   return Promise.reject(resp.data);
 }, errorHandle);
 
-export default request;
+export default Ajax = request;
