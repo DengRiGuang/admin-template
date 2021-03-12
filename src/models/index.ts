@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-03-11 09:29:25
- * @lastTime: 2021-03-12 15:08:56
+ * @lastTime: 2021-03-12 17:00:21
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\models\index.ts
  * @Description: 
@@ -17,6 +17,13 @@ export interface loginQuery {
   username: string;
   password: string;
 }
+
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
 export interface loginModel {
   username: string;
   password: string;

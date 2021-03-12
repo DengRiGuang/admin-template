@@ -44,4 +44,4 @@ request.interceptors.response.use((resp) => {
   return Promise.reject(resp.data);
 }, errorHandle);
 
-export default Ajax = request;
+export default request;
