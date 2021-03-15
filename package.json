@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design-vue/use": "^0.0.1-alpha.9",
     "@ant-design/icons-vue": "^6.0.1",
+    "@typescript-eslint/parser": "^4.17.0",
     "ant-design-vue": "^2.0.1",
     "axios": "^0.21.1",
     "vue": "^3.0.7",
