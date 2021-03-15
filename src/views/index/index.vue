@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 10:44:23
- * @lastTime: 2021-03-15 11:39:43
+ * @lastTime: 2021-03-15 15:14:17
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\views\index\index.vue
  * @Description: 
@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import { getIndex } from '@/api/index';
-import { loginQuery } from '@/models';
+import { loginModel, loginQuery } from '@/models';
 import { useStore } from 'vuex';
 
 export default defineComponent({
@@ -21,12 +21,12 @@ export default defineComponent({
     const store = useStore();
     console.log(store.state.user.username);
     const book = reactive<loginQuery>({
-      username: '',
-      password: '',
+      username: 'guang',
+      password: '123456',
     });
     let data = reactive({});
-    getIndex(book).then(resp => {
-      console.log(resp);
+    getIndex<loginModel>(book).then(resp => {
+      console.log(resp.data);
     });
     return {
       book,

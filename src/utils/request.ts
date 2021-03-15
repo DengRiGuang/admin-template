@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 11:06:43
- * @lastTime: 2021-03-12 16:54:31
+ * @lastTime: 2021-03-15 15:09:19
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\utils\request.ts
  * @Description: 
@@ -37,11 +37,12 @@ request.interceptors.request.use(config => {
 // 响应拦截器
 request.interceptors.response.use((resp) => {
   const { status, message }  = resp.data;
-  if (status === 200) {
+  if (status === 200 || status === '0000') {
     return resp.data;
   }
   Message.error(message);
   return Promise.reject(resp.data);
 }, errorHandle);
+
 
 export default request;
