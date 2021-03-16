@@ -1,12 +1,13 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-22 10:44:32
- * @lastTime: 2021-03-15 14:03:07
+ * @lastTime: 2021-03-16 13:48:55
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\store\index.ts
  * @Description: 
  */
 import { createStore } from 'vuex';
+import createPersistedState from 'vuex-persistedstate'; // 解决页面刷新vuex重置问题
 import getters from './getters';
 
 let modulesFiles = import.meta.globEager('./modules/*.ts');
@@ -21,5 +22,6 @@ for (const modulePath in modulesFiles) {
 const store = createStore({
   modules,
   getters,
+  plugins: [createPersistedState()],
 });
 export default store;
