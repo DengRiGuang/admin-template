@@ -1,7 +1,7 @@
 /*
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-19 09:57:14
- * @lastTime: 2021-03-10 17:29:37
+ * @lastTime: 2021-04-13 18:41:34
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\vite.config.ts
  * @Description: 
@@ -10,6 +10,8 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import vitePluginImp from 'vite-plugin-imp';
+import { visualizer } from 'rollup-plugin-visualizer';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -23,6 +25,11 @@ export default defineConfig({
           },
         },
       ],
+    }),
+    visualizer({
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
     }),
   ],
   base: './',
