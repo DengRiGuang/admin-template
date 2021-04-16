@@ -1,82 +1,191 @@
 /*
  * @Author: dengriguang@hnpmct.com
- * @since: 2021-02-19 10:37:35
- * @lastTime: 2021-03-10 09:59:48
+ * @since: 2021-04-14 17:44:35
+ * @lastTime: 2021-04-14 18:11:26
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\plugins\index.ts
  * @Description: 
  */
-import {
-  Button,
-  Form,
-  Input,
-  InputNumber,
-  Menu,
-  Tooltip,
-  Tabs,
-  Layout,
-  Dropdown,
-  Breadcrumb,
-  Avatar,
-  Result,
-  message,
-} from 'ant-design-vue';
 import { App } from 'vue';
+import {
+  ElAlert,
+  ElAside,
+  ElAutocomplete,
+  ElAvatar,
+  ElBacktop,
+  ElBadge,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElButton,
+  ElButtonGroup,
+  ElCalendar,
+  ElCard,
+  ElCarousel,
+  ElCarouselItem,
+  ElCascader,
+  ElCascaderPanel,
+  ElCheckbox,
+  ElCheckboxButton,
+  ElCheckboxGroup,
+  ElCol,
+  ElCollapse,
+  ElCollapseItem,
+  ElCollapseTransition,
+  ElColorPicker,
+  ElContainer,
+  ElDatePicker,
+  ElDialog,
+  ElDivider,
+  ElDrawer,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
+  ElFooter,
+  ElForm,
+  ElFormItem,
+  ElHeader,
+  ElIcon,
+  ElImage,
+  ElInput,
+  ElInputNumber,
+  ElLink,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElMenuItemGroup,
+  ElOption,
+  ElOptionGroup,
+  ElPageHeader,
+  ElPagination,
+  ElPopconfirm,
+  ElPopover,
+  ElPopper,
+  ElProgress,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
+  ElRate,
+  ElRow,
+  ElScrollbar,
+  ElSelect,
+  ElSlider,
+  ElStep,
+  ElSteps,
+  ElSubmenu,
+  ElSwitch,
+  ElTabPane,
+  ElTable,
+  ElTableColumn,
+  ElTabs,
+  ElTag,
+  ElTimePicker,
+  ElTimeSelect,
+  ElTimeline,
+  ElTimelineItem,
+  ElTooltip,
+  ElTransfer,
+  ElTree,
+  ElUpload,
+  ElInfiniteScroll,
+  ElLoading,
+  ElMessage,
+  ElMessageBox,
+  ElNotification,
+} from 'element-plus';
 
 const components = [
-  Button,
-  Form,
-  Input,
-  InputNumber,
-  Menu,
-  Tooltip,
-  Tabs,
-  Layout,
-  Dropdown,
-  Breadcrumb,
-  Avatar,
-  Result,
+  ElAlert,
+  ElAside,
+  ElAutocomplete,
+  ElAvatar,
+  ElBacktop,
+  ElBadge,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElButton,
+  ElButtonGroup,
+  ElCalendar,
+  ElCard,
+  ElCarousel,
+  ElCarouselItem,
+  ElCascader,
+  ElCascaderPanel,
+  ElCheckbox,
+  ElCheckboxButton,
+  ElCheckboxGroup,
+  ElCol,
+  ElCollapse,
+  ElCollapseItem,
+  ElCollapseTransition,
+  ElColorPicker,
+  ElContainer,
+  ElDatePicker,
+  ElDialog,
+  ElDivider,
+  ElDrawer,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
+  ElFooter,
+  ElForm,
+  ElFormItem,
+  ElHeader,
+  ElIcon,
+  ElImage,
+  ElInput,
+  ElInputNumber,
+  ElLink,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElMenuItemGroup,
+  ElOption,
+  ElOptionGroup,
+  ElPageHeader,
+  ElPagination,
+  ElPopconfirm,
+  ElPopover,
+  ElPopper,
+  ElProgress,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
+  ElRate,
+  ElRow,
+  ElScrollbar,
+  ElSelect,
+  ElSlider,
+  ElStep,
+  ElSteps,
+  ElSubmenu,
+  ElSwitch,
+  ElTabPane,
+  ElTable,
+  ElTableColumn,
+  ElTabs,
+  ElTag,
+  ElTimePicker,
+  ElTimeSelect,
+  ElTimeline,
+  ElTimelineItem,
+  ElTooltip,
+  ElTransfer,
+  ElTree,
+  ElUpload,
 ];
-
-
 
 const plugins = [
-  message,
+  ElInfiniteScroll,
+  ElLoading,
+  ElMessage,
+  ElMessageBox,
+  ElNotification,
 ];
-
-
-
 export function registerComp(app: App): void {
   components.forEach(component => {
     app.component(component.name, component);
-    if (component === Menu) {
-      app.component(component.Item.name, component.Item);
-      app.component(component.SubMenu.name, component.SubMenu);
-      app.component(component.ItemGroup.name, component.ItemGroup);
-      app.component(component.Divider.name, component.Divider);
-    }
-    if (component === Input) {
-      app.component(component.Password.name, component.Password);
-    }
-    if (component === Form) {
-      app.component(component.Item.name, component.Item);
-    }
-    if (component === Tabs) {
-      app.component(component.TabPane.name, component.TabPane);
-    }
-    if (component === Layout) {
-      app.component(component.Content.name, component.Content);
-      app.component(component.Sider.name, component.Sider);
-      app.component(component.Header.name, component.Header);
-      app.component(component.Footer.name, component.Footer);
-    }
-    if (component === Breadcrumb) {
-      app.component(component.Item.name, component.Item);
-      app.component(component.Separator.name, component.Separator);
-    }
   });
-  
-  plugins.forEach(() => {
-    app.config.globalProperties.$message = message;
+  plugins.forEach(plugin => {
+    app.use(plugin);
   });
 }

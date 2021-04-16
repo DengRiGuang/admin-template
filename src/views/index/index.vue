@@ -1,7 +1,7 @@
 <!--
  * @Author: dengriguang@hnpmct.com
  * @since: 2021-02-25 10:44:23
- * @lastTime: 2021-03-15 15:14:17
+ * @lastTime: 2021-04-16 10:18:06
  * @LastAuthor: Do not edit
  * @文件相对于项目的路径: \admin-template\src\views\index\index.vue
  * @Description: 
@@ -26,13 +26,15 @@ export default defineComponent({
     });
     let data = reactive({});
     getIndex<loginModel>(book).then(resp => {
-      console.log(resp.data);
+      console.log(resp);
     });
     return {
       book,
       data,
     };
   },
+  data() {},
+  methods: {},
 });
 </script>
 
